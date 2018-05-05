@@ -1,0 +1,23 @@
+{
+    "has-headers": false,
+    "date-format": "d\/m\/Y",
+    "delimiter": ",",
+    "import-account": 12,
+    "specifics": [],
+    "column-count": 4,
+    "column-roles": [
+        "date-transaction",
+        "amount",
+        "description",
+        "external-id"
+    ],
+    "column-do-mapping": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "column-roles-complete": false,
+    "column-mapping-config": [],
+    "column-mapping-complete": false
+}
