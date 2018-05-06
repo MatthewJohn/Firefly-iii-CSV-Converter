@@ -4,7 +4,7 @@ import argparse
 import csv
 
 parser = argparse.ArgumentParser(description='Convert Bank CSV to firefly-iii input/config.')
-parser.add_argument('--bank', help='Name of bank', default='lloyds', choices=['lloyds', 'tsb-copy-paste', 'tsb'])
+parser.add_argument('--bank', help='Name of bank', default='lloyds', choices=['lloyds', 'tsb-copy-paste', 'tsb', 'barclays'])
 parser.add_argument('--input-csv', dest='input_csv', help='Input CSV filename', required=True)
 parser.add_argument('--config', help='Config file', required=True)
 parser.add_argument('--output-config', dest='output_config', help='Output firefly-iii config', required=True)
@@ -29,6 +29,13 @@ class Transaction(object):
         return {'Date': self.date, 'Amount': self.amount,
                 'Description': self.description,
                 'Duplicator': '%s-%s' % (self.date, self.description)}
+
+def process_barclays_row(row):
+    date = row[1]
+    description = row[5]
+    amount = row[3]
+    return Transaction(date=date, amount=amount, description=description)
+
 
 def process_tsb_row(row):
     dates = row[0].split('-')
@@ -63,6 +70,8 @@ with open(args.input_csv, 'rb') as csvfile:
             row_objects.append(process_lloyds_row(row))
         elif args.bank == 'tsb':
             row_objects.append(process_tsb_row(row))
+        elif args.bank == 'barclays':
+            row_objects.append(process_barclays_row(row))
         elif args.bank == 'tsb-copy-paste':
             row_objects.append(process_tsb_copy_paste(row))
 
