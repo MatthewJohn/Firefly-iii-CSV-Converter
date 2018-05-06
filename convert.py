@@ -17,7 +17,7 @@ class Transaction(object):
                 'Description': self.description,
                 'Duplicator': '%s-%s' % (self.date, self.description)}
 
-class Processer(object):
+class Processor(object):
 
     OUTPUT_FIELDS = ['Date', 'Amount', 'AccountId', 'Description', 'Duplicator']
     CONFIG = {'CONTAINS_HEADER': True}
@@ -100,6 +100,6 @@ if __name__ == "__main__":
     parser.add_argument('--output-csv', dest='output_csv', help='Output CSV', required=True)
 
     args = parser.parse_args()
-    proc = Processer()
+    proc = Processor()
     proc.process(bank=args.bank, input_csv=args.input_csv, account_number=args.account_number)
     proc.dump(args.output_csv)
