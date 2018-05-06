@@ -8,6 +8,18 @@ Convert CSV files from (some) UK banks to a format usable by Firefly-iii
 
 Upload to firefly using the provided configuration
 
+## Supported Banks
+
+* Lloyds
+* TSB (Pre-update)
+* Barclays
+* Halifax
+
+### Soon to be supported
+
+* Updated TSB
+* Coventry Building Society
+
 ## Licence
 
 MIT © [Matt John](matthew@dockstudios.co.uk)
