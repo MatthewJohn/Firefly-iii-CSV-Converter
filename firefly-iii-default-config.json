@@ -2,12 +2,13 @@
     "has-headers": false,
     "date-format": "d\/m\/Y",
     "delimiter": ",",
-    "import-account": 12,
+    "import-account": 14,
     "specifics": [],
-    "column-count": 4,
+    "column-count": 5,
     "column-roles": [
         "date-transaction",
         "amount",
+        "account-number",
         "description",
         "external-id"
     ],
@@ -15,9 +16,16 @@
         false,
         false,
         false,
+        false,
         false
     ],
-    "column-roles-complete": false,
     "column-mapping-config": [],
-    "column-mapping-complete": false
+    "file-type": "csv",
+    "has-config-file": true,
+    "apply-rules": true,
+    "auto-start": false,
+    "column-roles-complete": false,
+    "column-mapping-complete": false,
+    "initial-config-complete": false,
+    "has-file-upload": false
 }
